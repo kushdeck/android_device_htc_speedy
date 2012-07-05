@@ -45,6 +45,10 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/base/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
 
+# Media config
+PRODUCT_COPY_FILES += \
+    device/htc/msm7x30-common/media_profiles.xml:system/etc/media_profiles.xml
+
 # Misc
 PRODUCT_PACKAGES += \
     camera.msm7x30 \
@@ -54,7 +58,8 @@ PRODUCT_PACKAGES += \
 
 # Temporary hack
 ADDITIONAL_DEFAULT_PROPERTIES += \
-    persist.service.adb.enable=1
+    persist.service.adb.enable=1 \
+    persist.sys.root_access=3
 
 # Input config files
 PRODUCT_COPY_FILES += \
@@ -142,6 +147,10 @@ $(call inherit-product-if-exists, vendor/htc/speedy/speedy-vendor.mk)
 # Script to signal boot completion for init.d
 PRODUCT_COPY_FILES += \
     device/htc/speedy/prebuilt/system/etc/init.d/100complete:system/etc/init.d/100complete
+
+# Init post-boot script
+PRODUCT_COPY_FILES += \
+    device/htc/speedy/prebuilt/system/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh
 
 # common msm7x30 configs
 $(call inherit-product, device/htc/msm7x30-common/msm7x30.mk)

@@ -25,6 +25,10 @@
 # against the traditional rules of inheritance).
 USE_CAMERA_STUB := true
 
+# Support for legacy camera
+TARGET_LEGACY_CAM := true
+COMMON_GLOBAL_CFLAGS += -DLEGACY_CAM=1
+
 # inherit from common msm7x30 device
 -include device/htc/msm7x30-common/BoardConfigCommon.mk
 
@@ -32,9 +36,6 @@ USE_CAMERA_STUB := true
 -include vendor/htc/speedy/BoardConfigVendor.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := speedy
-
-BOARD_USES_HTC_CAMERA := true
-COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT
 
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := speedy
