@@ -25,10 +25,6 @@
 # against the traditional rules of inheritance).
 USE_CAMERA_STUB := true
 
-# Support for legacy camera
-TARGET_LEGACY_CAM := true
-COMMON_GLOBAL_CFLAGS += -DLEGACY_CAM=1
-
 # inherit from common msm7x30 device
 -include device/htc/msm7x30-common/BoardConfigCommon.mk
 
