@@ -25,7 +25,6 @@
 <!ATTLIST EncoderProfile quality (high|low) #REQUIRED>
 <!ATTLIST EncoderProfile fileFormat (mp4|3gp) #REQUIRED>
 <!ATTLIST EncoderProfile duration (30|60) #REQUIRED>
-<!ATTLIST EncoderProfile cameraId (0|1) #REQUIRED>
 <!ELEMENT Video EMPTY>
 <!ATTLIST Video codec (h264|h263|m4v) #REQUIRED>
 <!ATTLIST Video bitRate CDATA #REQUIRED>
@@ -88,54 +87,7 @@
 -->
 <MediaSettings>
     <!-- Each camcorder profile defines a set of predefined configuration parameters -->
-    <CamcorderProfiles cameraId="0">
-
-        <EncoderProfile quality="qvga" fileFormat="3gp" duration="60">
-            <Video codec="h263"
-                   bitRate="256000"
-                   width="176"
-                   height="144"
-                   frameRate="30" />
-            <Audio codec="amrnb"
-                   bitRate="12200"
-                   sampleRate="8000"
-                   channels="1" />
-        </EncoderProfile>
-
-        <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
-            <Video codec="h264"
-                   bitRate="3000000"
-                   width="720"
-                   height="480"
-                   frameRate="30" />
-            <Audio codec="aac"
-                   bitRate="96000"
-                   sampleRate="48000"
-                   channels="1" />
-        </EncoderProfile>
-
-        <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
-            <Video codec="h264"
-                   bitRate="6000000"
-                   width="1280"
-                   height="720"
-                   frameRate="30" />
-            <Audio codec="aac"
-                   bitRate="96000"
-                   sampleRate="48000"
-                   channels="1" />
-        </EncoderProfile>
-
-        <ImageEncoding quality="95" />
-        <ImageEncoding quality="80" />
-        <ImageEncoding quality="70" />
-        <ImageDecoding memCap="20000000" />
-
-        <Camera previewFrameRate="31" />
-
-    </CamcorderProfiles>
-
-    <CamcorderProfiles cameraId="1">
+    <CamcorderProfiles>
 
         <EncoderProfile quality="qvga" fileFormat="3gp" duration="60">
             <Video codec="h263"
