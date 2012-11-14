@@ -4,13 +4,11 @@
 #sensors
 /dev/akm8975_daemon     0640    compass     system
 /dev/akm8975_aot        0640    compass     system
-/dev/oncrpc/*           0660    root        system
 
 #video
-/dev/msm_vidc_dec       0660    system      audio
-/dev/msm_vidc_dec_sec   0660    system      audio
-/dev/msm_vidc_enc       0660    system      audio
 /dev/msm_vidc_reg       0660    system      audio
+/dev/msm_vidc_dec       0660    system      audio
+/dev/msm_vidc_enc       0660    system      audio
 
 #audio
 /dev/htc-acdb           0660    system      audio
@@ -42,11 +40,6 @@
 #camera
 /dev/gemini0            0660    system     camera
 /dev/msm_camera/*       0660    system     camera
-/dev/pmem_camera*       0660    system     camera
-/dev/pmem_smipool*      0660    system     camera
-/dev/video*             0660    system     camera
 
-#bluetooth
-/dev/ttyHS0             0600    bluetooth   bluetooth
-/dev/ttyMSM0            0600    bluetooth   bluetooth
-/dev/uinput             0660    system      bluetooth
+# wifi
+/dev/rfkill             0660    root        wifi

@@ -25,38 +25,55 @@
 # against the traditional rules of inheritance).
 USE_CAMERA_STUB := true
 
-# inherit from common msm7x30 device
+# inherit from common msm7x30
 -include device/htc/msm7x30-common/BoardConfigCommon.mk
 
 # inherit from the proprietary version
 -include vendor/htc/speedy/BoardConfigVendor.mk
 
+BOARD_KERNEL_CMDLINE := no_console_suspend=1
+BOARD_KERNEL_BASE := 0x4000000
+BOARD_KERNEL_PAGE_SIZE := 4096
+
 TARGET_BOOTLOADER_BOARD_NAME := speedy
 
-# GPS
+BOARD_VENDOR_QCOM_AMSS_VERSION := 1200
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := speedy
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
+BOARD_USES_LEGACY_CAMERA := true
+BOARD_USE_NEW_LIBRIL_HTC := true
+
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
+
+# cat /proc/emmc
+#dev:        size     erasesize name
+#mmcblk0p17: 00040000 00000200 "misc"
+#mmcblk0p21: 0087f400 00000200 "recovery"
+#mmcblk0p22: 00400000 00000200 "boot"
+#mmcblk0p26: 1f7bf600 00000200 "system"
+#mmcblk0p28: 09a7fa00 00000200 "cache"
+#mmcblk0p27: 1bbffe00 00000200 "userdata"
+#mmcblk0p31: 01400200 00000200 "devlog"
+#mmcblk0p32: 00040000 00000200 "pdata"
+#mmcblk0p25: 00c00200 00000200 "wimax"
+#mmcblk0p30: 007ffa00 00000200 "udata_wimax"
+
+TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 435941376
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1394606080
 BOARD_BOOTIMAGE_PARTITION_SIZE := 4194304
 BOARD_FLASH_BLOCK_SIZE := 262144
 
-# TARGET_SPECIFIC_HEADER_PATH := device/htc/speedy/include
-TARGET_SPECIFIC_HEADER_PATH := device/htc/msm7x30-common/include
-
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
+TARGET_KERNEL_SOURCE := kernel/htc/msm7x30
+TARGET_KERNEL_CONFIG := evervolv_speedy_defconfig
+BUILD_KERNEL := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
-TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_KERNEL_CMDLINE := no_console_suspend=1
-BOARD_KERNEL_BASE := 0x4000000
-BOARD_KERNEL_PAGE_SIZE := 4096
+TARGET_PREBUILT_KERNEL := device/htc/speedy/prebuilt/root/kernel
 
-BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
 BOARD_USES_MMCUTILS := true
-
-TARGET_KERNEL_SOURCE := kernel/htc/speedy
-TARGET_KERNEL_CONFIG := tiamat_speedy_defconfig
+BOARD_HAS_NO_SELECT_BUTTON := 1
