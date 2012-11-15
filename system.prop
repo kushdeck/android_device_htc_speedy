@@ -6,8 +6,6 @@ debug.fb.rgb565 = 0
 
 rild.libpath=/system/lib/libhtc_ril.so
 # htc v4 ril
-ro.telephony.ril.v3=signalstrength
-ro.ril.enable.garbage.filter=0
 ro.telephony.default_network = 4
 gsm.sim.operator.alpha = sprint
 gsm.sim.operator.numeric = 310120
@@ -18,11 +16,6 @@ gsm.operator.iso-country = us
 
 #Modify MTU from 1500 to 1472 on 3G network
 ro.ril.set.mtu1472 = 1
-
-# system props for the data modules
-ro.use_data_netmgrd=true
-persist.data_netmgrd_nint=8
-persist.data_netmgrd_mtu=1472
 
 net.tcp.buffersize.wimax = 4096,221184,524288,4096,16384,110208
 
@@ -50,4 +43,4 @@ dalvik.vm.heapsize=32m
 # Make cdma voicemail the default voicemail number.
 ro.cdma.voicemail.number = mine
 
-mobiledata.interfaces=rmnet0,eth0,gprs,ppp0,wimax0
+mobiledata.interfaces=rmnet0,wlan0,gprs,ppp0,wimax0
