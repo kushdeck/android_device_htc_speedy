@@ -55,6 +55,10 @@ PRODUCT_PACKAGES += \
     sensors.speedy \
     lights.speedy
 
+# WiMAX support
+PRODUCT_PACKAGES += \
+  CMWimaxSettings
+
 # Temporary hack
 ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.service.adb.enable=1
@@ -96,9 +100,6 @@ PRODUCT_LOCALES += en
 PRODUCT_COPY_FILES += \
     device/htc/speedy/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab \
     device/htc/speedy/prebuilt/system/etc/apns-conf.xml:system/etc/apns-conf.xml
-
-PRODUCT_COPY_FILES += \
-    device/htc/speedy/prebuilt/system/lib/libcryp98.so:system/lib/libcryp98.so
 
 $(call inherit-product-if-exists, vendor/htc/speedy/speedy-vendor.mk)
 
