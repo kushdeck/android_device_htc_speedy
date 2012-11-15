@@ -45,6 +45,7 @@ BOARD_USES_GB_CAMERA := true
 BOARD_USES_LEGACY_OVERLAY := true
 BOARD_USE_NEW_LIBRIL_HTC := true
 BOARD_USES_LEGACY_RIL := true
+BOARD_HAVE_SQN_WIMAX := true
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
 
