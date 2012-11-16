@@ -1,7 +1,7 @@
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit AOSP device configuration for speedy.
-$(call inherit-product, device/htc/speedy/full_speedy.mk)
+$(call inherit-product, device/htc/speedy/speedy.mk)
 
 #
 # Setup device specific product configuration.

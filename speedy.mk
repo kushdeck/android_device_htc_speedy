@@ -19,13 +19,13 @@ $(call inherit-product, device/htc/msm7x30-common/msm7x30.mk)
 
 # The gps config appropriate for this device
 PRODUCT_COPY_FILES += \
-    device/htc/speedy/prebuilt/system/etc/gps.conf:system/etc/gps.conf
+    device/htc/speedy/configs/gps.conf:system/etc/gps.conf
 
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
 PRODUCT_COPY_FILES += \
-    device/htc/speedy/prebuilt/root/init.speedy.rc:root/init.speedy.rc \
-    device/htc/speedy/prebuilt/root/ueventd.speedy.rc:root/ueventd.speedy.rc
+    device/htc/speedy/ramdisk/init.speedy.rc:root/init.speedy.rc \
+    device/htc/speedy/ramdisk/ueventd.speedy.rc:root/ueventd.speedy.rc
 
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/speedy/speedy-vendor.mk)
@@ -65,41 +65,41 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 # Input config files
 PRODUCT_COPY_FILES += \
-    device/htc/speedy/prebuilt/system/usr/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
-    device/htc/speedy/prebuilt/system/usr/keylayout/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
-    device/htc/speedy/prebuilt/system/usr/idc//speedy-keypad.idc:system/usr/idc/speedy-keypad.idc \
-    device/htc/speedy/prebuilt/system/usr/keylayout/speedy-keypad.kl:system/usr/keylayout/speedy-keypad.kl
+    device/htc/speedy/usr/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
+    device/htc/speedy/usr/keylayout/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
+    device/htc/speedy/usr/idc//speedy-keypad.idc:system/usr/idc/speedy-keypad.idc \
+    device/htc/speedy/usr/keylayout/speedy-keypad.kl:system/usr/keylayout/speedy-keypad.kl
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    device/htc/speedy/prebuilt/system/usr/keychars/speedy-keypad.kcm:system/usr/keychars/speedy-keypad.kcm \
-    device/htc/speedy/prebuilt/system/usr/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl\
-    device/htc/speedy/prebuilt/system/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl
+    device/htc/speedy/usr/keychars/speedy-keypad.kcm:system/usr/keychars/speedy-keypad.kcm \
+    device/htc/speedy/usr/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl\
+    device/htc/speedy/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl
 
 # Firmware
 PRODUCT_COPY_FILES += \
-    device/htc/speedy/prebuilt/vendor/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
-    device/htc/speedy/prebuilt/vendor/firmware/BCM4329B1_002.002.023.0511.0538.hcd:system/etc/firmware/BCM4329B1_002.002.023.0511.0538.hcd \
-    device/htc/speedy/prebuilt/vendor/firmware/default.acdb:system/etc/firmware/default.acdb \
-    device/htc/speedy/prebuilt/vendor/firmware/default_mfg.acdb:system/etc/firmware/default_mfg.acdb \
-    device/htc/speedy/prebuilt/vendor/firmware/default_org.acdb:system/etc/firmware/default_org.acdb
+    device/htc/speedy/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
+    device/htc/speedy/firmware/BCM4329B1_002.002.023.0511.0538.hcd:system/etc/firmware/BCM4329B1_002.002.023.0511.0538.hcd \
+    device/htc/speedy/firmware/default.acdb:system/etc/firmware/default.acdb \
+    device/htc/speedy/firmware/default_mfg.acdb:system/etc/firmware/default_mfg.acdb \
+    device/htc/speedy/firmware/default_org.acdb:system/etc/firmware/default_org.acdb
 
 # OMX Config Profiles
 PRODUCT_COPY_FILES += \
-    device/htc/speedy/prebuilt/system/etc/vomeComp_RTSP.cfg:system/etc/vomeComp_RTSP.cfg \
-    device/htc/speedy/prebuilt/system/etc/vomeComp.cfg:system/etc/vomeComp.cfg \
-    device/htc/speedy/prebuilt/system/etc/vomeCore.cfg:system/etc/vomeCore.cfg \
-    device/htc/speedy/prebuilt/system/etc/vomeplay.cfg:system/etc/vomeplay.cfg \
-    device/htc/speedy/prebuilt/system/etc/vommcodec.cfg:system/etc/vommcodec.cfg \
-    device/htc/speedy/prebuilt/system/etc/voPDLog.cfg:system/etc/voPDLog.cfg \
-    device/htc/speedy/prebuilt/system/etc/voVidDec.dat:system/etc/voVidDec.dat
+    device/htc/speedy/configs/vomeComp_RTSP.cfg:system/etc/vomeComp_RTSP.cfg \
+    device/htc/speedy/configs/vomeComp.cfg:system/etc/vomeComp.cfg \
+    device/htc/speedy/configs/vomeCore.cfg:system/etc/vomeCore.cfg \
+    device/htc/speedy/configs/vomeplay.cfg:system/etc/vomeplay.cfg \
+    device/htc/speedy/configs/vommcodec.cfg:system/etc/vommcodec.cfg \
+    device/htc/speedy/configs/voPDLog.cfg:system/etc/voPDLog.cfg \
+    device/htc/speedy/configs/voVidDec.dat:system/etc/voVidDec.dat
 
 # speedy uses high-density artwork where available
 PRODUCT_LOCALES += en
 
 PRODUCT_COPY_FILES += \
-    device/htc/speedy/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab \
-    device/htc/speedy/prebuilt/system/etc/apns-conf.xml:system/etc/apns-conf.xml
+    device/htc/speedy/configs/vold.fstab:system/etc/vold.fstab \
+    device/htc/speedy/configs/apns-conf.xml:system/etc/apns-conf.xml
 
 $(call inherit-product-if-exists, vendor/htc/speedy/speedy-vendor.mk)
 
